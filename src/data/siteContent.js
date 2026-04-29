@@ -2,6 +2,7 @@ import refurbRadarImage from "../assets/RefurbRadar.png";
 import macBuddyImage from "../assets/MacBuddy.png";
 import kiwiTrailsImage from "../assets/KiwiTrails.png";
 import techTrendsImage from "../assets/TechTrends.png";
+import nimagineImage from "../assets/nimagine.png";
 
 export const buildPillars = [
   {
@@ -48,6 +49,12 @@ export const projects = [
     subtitle: "AI travel planning for New Zealand.",
     href: "https://www.kiwitrails.com",
     image: kiwiTrailsImage,
+  },
+  {
+    name: "Nimagine Travel",
+    subtitle: "Personal China travel companion.",
+    href: "https://www.nimagine.co.nz",
+    image: nimagineImage,
   },
   {
     name: "Tech Trends",
