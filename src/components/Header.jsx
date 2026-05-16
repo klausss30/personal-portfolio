@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
+import { LuMoon, LuSun } from "react-icons/lu";
 import { localizedHeader } from "../content/heroContent.js";
 
 function scrollToSection(id, closeMenu) {
@@ -13,11 +14,12 @@ function scrollToSection(id, closeMenu) {
   }
 }
 
-export default function Header({ language }) {
+export default function Header({ language, theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
   const content = localizedHeader[language] ?? localizedHeader.en;
+  const isDark = theme === "dark";
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 18);
@@ -44,18 +46,18 @@ export default function Header({ language }) {
           initial={reduceMotion ? false : { opacity: 0, y: -28 }}
           animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className={`mx-auto max-w-6xl rounded-full border px-4 py-3 shadow-[0_20px_80px_rgba(15,23,42,0.1)] backdrop-blur-[24px] transition-all duration-500 sm:px-5 ${
+          className={`mx-auto max-w-6xl rounded-full border px-4 py-3 shadow-[var(--shadow-soft)] backdrop-blur-[24px] transition-all duration-500 sm:px-5 ${
             isScrolled
-              ? "border-[#dadade] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,246,249,0.72))]"
-              : "border-[#ececf0] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(248,248,250,0.44))]"
+              ? "border-[var(--header-border-scrolled)] bg-[var(--header-bg-scrolled)]"
+              : "border-[var(--header-border)] bg-[var(--header-bg)]"
           }`}
         >
-          <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.98),rgba(255,255,255,0))]" />
-          <div className="pointer-events-none absolute inset-x-20 top-[1px] h-6 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.34),rgba(255,255,255,0))] blur-md" />
+          <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[var(--header-highlight)]" />
+          <div className="pointer-events-none absolute inset-x-20 top-[1px] h-6 rounded-full bg-[var(--header-sheen)] blur-md" />
           <div className="relative flex items-center justify-between gap-4">
             <a
               href="#top"
-              className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-[#e1e1e6] bg-white/78 shadow-[0_8px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl"
+              className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-[var(--border-soft)] bg-[var(--surface-raised-soft)] shadow-[0_8px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl"
               aria-label="Klausss home"
             >
               <img src="/logo.png" alt="Klausss logo" className="h-full w-full object-cover" />
@@ -66,35 +68,53 @@ export default function Header({ language }) {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="rounded-full px-4 py-2 text-sm font-medium text-[#404046] transition-colors duration-300 hover:bg-white/55 hover:text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#c8c8cf]"
+                  className="rounded-full px-4 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-300 hover:bg-[var(--surface-raised-hover)] hover:text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--border)]"
                 >
                   {item.label}
                 </button>
               ))}
             </nav>
 
-            <div className="hidden h-9 w-9 md:block" aria-hidden="true" />
-
             <button
               type="button"
-              onClick={() => setIsMenuOpen((value) => !value)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#e3e3e8] bg-white/80 text-[#111111] md:hidden"
-              aria-expanded={isMenuOpen}
-              aria-label="Toggle navigation"
+              onClick={toggleTheme}
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-raised-soft)] text-[var(--text)] transition-colors duration-300 hover:bg-[var(--surface-raised)] focus:outline-none focus:ring-2 focus:ring-[var(--border)] md:inline-flex"
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
-              <span className="relative h-4 w-4">
-                <span
-                  className={`absolute left-0 top-1/2 h-px w-4 -translate-y-[5px] bg-current transition-transform duration-300 ${
-                    isMenuOpen ? "translate-y-0 rotate-45" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-1/2 h-px w-4 translate-y-[5px] bg-current transition-transform duration-300 ${
-                    isMenuOpen ? "translate-y-0 -rotate-45" : ""
-                  }`}
-                />
-              </span>
+              {isDark ? <LuSun className="h-5 w-5" /> : <LuMoon className="h-5 w-5" />}
             </button>
+
+            <div className="flex items-center gap-2 md:hidden">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-raised-soft)] text-[var(--text)]"
+                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {isDark ? <LuSun className="h-5 w-5" /> : <LuMoon className="h-5 w-5" />}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen((value) => !value)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-raised-soft)] text-[var(--text)]"
+                aria-expanded={isMenuOpen}
+                aria-label="Toggle navigation"
+              >
+                <span className="relative h-4 w-4">
+                  <span
+                    className={`absolute left-0 top-1/2 h-px w-4 -translate-y-[5px] bg-current transition-transform duration-300 ${
+                      isMenuOpen ? "translate-y-0 rotate-45" : ""
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-1/2 h-px w-4 translate-y-[5px] bg-current transition-transform duration-300 ${
+                      isMenuOpen ? "translate-y-0 -rotate-45" : ""
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </Motion.div>
       </header>
@@ -106,14 +126,14 @@ export default function Header({ language }) {
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-4 top-[5.4rem] z-40 rounded-[2rem] border border-[#e2e2e8] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(247,247,249,0.74))] p-4 shadow-[0_20px_80px_rgba(15,23,42,0.12)] backdrop-blur-[24px] md:hidden"
+            className="fixed inset-x-4 top-[5.4rem] z-40 rounded-[2rem] border border-[var(--border-soft)] bg-[var(--header-bg-scrolled)] p-4 shadow-[var(--shadow-menu)] backdrop-blur-[24px] md:hidden"
           >
             <nav className="grid gap-2">
               {content.nav.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id, () => setIsMenuOpen(false))}
-                  className="rounded-[1.2rem] px-4 py-3 text-left text-base font-medium text-[#404046] transition-colors duration-300 hover:bg-[#f3f3f5] hover:text-[#111111]"
+                  className="rounded-[1.2rem] px-4 py-3 text-left text-base font-medium text-[var(--text-muted)] transition-colors duration-300 hover:bg-[var(--surface)] hover:text-[var(--text)]"
                 >
                   {item.label}
                 </button>

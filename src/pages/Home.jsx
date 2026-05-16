@@ -68,7 +68,7 @@ function WhatIBuild() {
   };
 
   return (
-    <section id="build" className="px-6 pb-14 pt-24 text-[#111111] sm:px-8 lg:px-10 lg:pb-20 lg:pt-32">
+    <section id="build" className="px-6 pb-14 pt-24 text-[var(--text)] sm:px-8 lg:px-10 lg:pb-20 lg:pt-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Build"
@@ -81,7 +81,7 @@ function WhatIBuild() {
               type="button"
               onClick={() => scrollCards("left")}
               disabled={!canScrollLeft}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e4e4e9] bg-[#fafafc] text-[#111111] transition-opacity duration-300 disabled:opacity-35"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text)] transition-opacity duration-300 disabled:opacity-35"
               aria-label="Scroll build cards left"
             >
               <HiArrowLeft className="h-5 w-5" />
@@ -90,7 +90,7 @@ function WhatIBuild() {
               type="button"
               onClick={() => scrollCards("right")}
               disabled={!canScrollRight}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e4e4e9] bg-[#fafafc] text-[#111111] transition-opacity duration-300 disabled:opacity-35"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text)] transition-opacity duration-300 disabled:opacity-35"
               aria-label="Scroll build cards right"
             >
               <HiArrowRight className="h-5 w-5" />
@@ -108,7 +108,7 @@ function WhatIBuild() {
               key={pillar.titleLines.join("-")}
               className={`min-w-[15rem] flex-1 rounded-[2rem] p-6 sm:min-w-[16rem] sm:p-7 lg:min-w-[16.5rem] ${pillar.tone}`}
             >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-[#111111]">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--surface-raised-soft)] text-[var(--text)]">
                 {(() => {
                   const Icon = buildIcons[pillar.icon];
                   return Icon ? <Icon className="h-5 w-5" /> : null;
@@ -118,13 +118,13 @@ function WhatIBuild() {
                 {pillar.titleLines.map((line) => (
                   <p
                     key={line}
-                    className="text-3xl font-semibold tracking-[-0.04em] text-[#111111] sm:text-4xl"
+                    className="text-3xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-4xl"
                   >
                     {line}
                   </p>
                 ))}
               </div>
-              <p className="mt-3 max-w-sm text-base leading-7 text-[#6e6e73] sm:text-lg">
+              <p className="mt-3 max-w-sm text-base leading-7 text-[var(--text-soft)] sm:text-lg">
                 {pillar.description}
               </p>
             </article>
@@ -172,7 +172,7 @@ function HowIBuild() {
   };
 
   return (
-    <section id="approach" className="bg-white px-6 pb-14 pt-14 text-[#111111] sm:px-8 lg:px-10 lg:pb-20 lg:pt-20">
+    <section id="approach" className="bg-[var(--page)] px-6 pb-14 pt-14 text-[var(--text)] transition-colors duration-500 sm:px-8 lg:px-10 lg:pb-20 lg:pt-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Approach"
@@ -185,7 +185,7 @@ function HowIBuild() {
               type="button"
               onClick={() => scrollCards("left")}
               disabled={!canScrollLeft}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e4e4e9] bg-[#fafafc] text-[#111111] transition-opacity duration-300 disabled:opacity-35"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text)] transition-opacity duration-300 disabled:opacity-35"
               aria-label="Scroll approach cards left"
             >
               <HiArrowLeft className="h-5 w-5" />
@@ -194,7 +194,7 @@ function HowIBuild() {
               type="button"
               onClick={() => scrollCards("right")}
               disabled={!canScrollRight}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e4e4e9] bg-[#fafafc] text-[#111111] transition-opacity duration-300 disabled:opacity-35"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text)] transition-opacity duration-300 disabled:opacity-35"
               aria-label="Scroll approach cards right"
             >
               <HiArrowRight className="h-5 w-5" />
@@ -212,16 +212,16 @@ function HowIBuild() {
               key={principle.title}
               className={`min-w-[15rem] flex-1 rounded-[2rem] p-6 sm:min-w-[16rem] sm:p-7 lg:min-w-[16.5rem] ${principle.tone}`}
             >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-[#111111]">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--surface-raised-soft)] text-[var(--text)]">
                 {(() => {
                   const Icon = approachIcons[principle.icon];
                   return Icon ? <Icon className="h-5 w-5" /> : null;
                 })()}
               </div>
-              <p className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-[#111111] sm:text-4xl">
+              <p className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-4xl">
                 {principle.title}
               </p>
-              <p className="mt-3 text-2xl font-medium tracking-[-0.03em] text-[#6e6e73] sm:text-3xl">
+              <p className="mt-3 text-2xl font-medium tracking-[-0.03em] text-[var(--text-soft)] sm:text-3xl">
                 {principle.description}
               </p>
             </article>
@@ -236,10 +236,10 @@ export default function Home() {
   const { language } = useOutletContext();
 
   return (
-    <div className="bg-white">
+    <div className="bg-[var(--page)] transition-colors duration-500">
       <Hero language={language} />
 
-      <section id="projects" className="bg-white py-5">
+      <section id="projects" className="bg-[var(--page)] py-5 transition-colors duration-500">
         <div className="px-6 pb-5 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <SectionHeading

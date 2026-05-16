@@ -32,19 +32,19 @@ export default function ProjectFeatureSection({ project }) {
       whileInView={reduceMotion ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
-      className="bg-[#f5f5f7] px-6 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
+      className="bg-[var(--surface)] px-6 py-16 transition-colors duration-500 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
         <Motion.h2
           variants={item}
-          className="text-4xl font-semibold tracking-[-0.05em] text-[#111111] sm:text-5xl lg:text-7xl"
+          className="text-4xl font-semibold tracking-[-0.05em] text-[var(--text)] sm:text-5xl lg:text-7xl"
         >
           {project.name}
         </Motion.h2>
 
         <Motion.p
           variants={item}
-          className="mt-4 max-w-3xl text-xl leading-8 text-[#3a3a40] sm:text-2xl"
+          className="mt-4 max-w-3xl text-xl leading-8 text-[var(--text-muted)] sm:text-2xl"
         >
           {project.subtitle}
         </Motion.p>
@@ -54,21 +54,20 @@ export default function ProjectFeatureSection({ project }) {
             href={project.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-w-[10rem] items-center justify-center rounded-full bg-[#111111] px-6 py-3.5 text-sm font-medium !text-white transition-opacity duration-300 hover:opacity-92 focus:outline-none focus:ring-2 focus:ring-[#111111]/20 focus:ring-offset-2 focus:ring-offset-[#f5f5f7]"
-            style={{ color: "#ffffff" }}
+            className="inline-flex min-w-[10rem] items-center justify-center rounded-full bg-[var(--button)] px-6 py-3.5 text-sm font-medium !text-[var(--button-text)] transition-opacity duration-300 hover:opacity-92 focus:outline-none focus:ring-2 focus:ring-[var(--border)] focus:ring-offset-2 focus:ring-offset-[var(--surface)]"
           >
             View
           </a>
         </Motion.div>
 
         <Motion.div variants={item} className="mt-14 w-full">
-          <div className="mx-auto flex aspect-[16/9] w-full max-w-5xl flex-col overflow-hidden rounded-[1.4rem] border border-[#d7d7dd] bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-            <div className="flex items-center gap-2 border-b border-[#ececf1] px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#111111]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#9c9ca3]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#d6d6dc]" />
+          <div className="mx-auto flex aspect-[16/9] w-full max-w-5xl flex-col overflow-hidden rounded-[1.4rem] border border-[var(--border)] bg-[var(--surface-raised)] shadow-[var(--shadow-window)]">
+            <div className="flex items-center gap-2 border-b border-[var(--border-subtle)] px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-[var(--text)]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[var(--text-soft)]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[var(--border)]" />
             </div>
-            <div className="flex flex-1 items-center justify-center bg-[linear-gradient(180deg,#ffffff_0%,#f7f7f9_100%)] p-4 sm:p-6">
+            <div className="flex flex-1 items-center justify-center bg-[var(--preview-bg)] p-4 sm:p-6">
               <img
                 src={project.image}
                 alt={`${project.name} homepage preview`}

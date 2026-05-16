@@ -11,14 +11,14 @@ export default function SectionHeading({ eyebrow, title, description, align = "l
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}
     >
-      <p className="text-sm font-medium tracking-[0.22em] text-[#7a7a80] uppercase">
+      <p className="text-sm font-medium tracking-[0.22em] text-[var(--eyebrow)] uppercase">
         {eyebrow}
       </p>
-      <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#111111] sm:text-5xl lg:text-6xl">
+      <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-5xl lg:text-6xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-[#4f4f55]">
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
           {description}
         </p>
       ) : null}

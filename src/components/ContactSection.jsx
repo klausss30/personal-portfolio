@@ -75,7 +75,7 @@ export default function ContactSection() {
 
           <form onSubmit={handleSubmit} className="grid gap-6">
             <label className="grid gap-2">
-              <span className="text-sm font-medium tracking-[0.04em] text-[#4f4f55]">
+              <span className="text-sm font-medium tracking-[0.04em] text-[var(--text-muted)]">
                 Name
               </span>
               <input
@@ -83,13 +83,13 @@ export default function ContactSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="rounded-[1.35rem] border border-[#d9d9df] bg-[linear-gradient(180deg,#ffffff_0%,#fafafd_100%)] px-5 py-4 text-base text-[#111111] outline-none transition-all duration-300 placeholder:text-[#9a9aa1] focus:border-[#bcbcc4] focus:bg-white"
+                className="rounded-[1.35rem] border border-[var(--border)] bg-[var(--field-bg)] px-5 py-4 text-base text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-soft)] focus:border-[var(--text-soft)]"
                 placeholder="Your name"
               />
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm font-medium tracking-[0.04em] text-[#4f4f55]">
+              <span className="text-sm font-medium tracking-[0.04em] text-[var(--text-muted)]">
                 Email
               </span>
               <input
@@ -98,13 +98,13 @@ export default function ContactSection() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="rounded-[1.35rem] border border-[#d9d9df] bg-[linear-gradient(180deg,#ffffff_0%,#fafafd_100%)] px-5 py-4 text-base text-[#111111] outline-none transition-all duration-300 placeholder:text-[#9a9aa1] focus:border-[#bcbcc4] focus:bg-white"
+                className="rounded-[1.35rem] border border-[var(--border)] bg-[var(--field-bg)] px-5 py-4 text-base text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-soft)] focus:border-[var(--text-soft)]"
                 placeholder="you@example.com"
               />
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm font-medium tracking-[0.04em] text-[#4f4f55]">
+              <span className="text-sm font-medium tracking-[0.04em] text-[var(--text-muted)]">
                 Message
               </span>
               <textarea
@@ -112,7 +112,7 @@ export default function ContactSection() {
                 rows="7"
                 value={formData.message}
                 onChange={handleChange}
-                className="resize-none rounded-[1.35rem] border border-[#d9d9df] bg-[linear-gradient(180deg,#ffffff_0%,#fafafd_100%)] px-5 py-4 text-base text-[#111111] outline-none transition-all duration-300 placeholder:text-[#9a9aa1] focus:border-[#bcbcc4] focus:bg-white"
+                className="resize-none rounded-[1.35rem] border border-[var(--border)] bg-[var(--field-bg)] px-5 py-4 text-base text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-soft)] focus:border-[var(--text-soft)]"
                 placeholder="Tell me a little about your project."
               />
             </label>
@@ -121,12 +121,12 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSending}
-                className="inline-flex min-w-[10rem] items-center justify-center rounded-full bg-[#111111] px-6 py-3.5 text-sm font-medium text-white transition-opacity duration-300 hover:opacity-92 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex min-w-[10rem] items-center justify-center rounded-full bg-[var(--button)] px-6 py-3.5 text-sm font-medium text-[var(--button-text)] transition-opacity duration-300 hover:opacity-92 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSending ? "Sending..." : "Submit"}
               </button>
               {isSent ? (
-                <p className="text-sm text-[#6e6e73]">Message sent.</p>
+                <p className="text-sm text-[var(--text-soft)]">Message sent.</p>
               ) : null}
             </div>
           </form>

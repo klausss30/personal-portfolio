@@ -9,25 +9,25 @@ export const buildPillars = [
     icon: "sparkles",
     titleLines: ["AI-powered", "products"],
     description: "Built around real use cases.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "window",
     titleLines: ["Scalable", "web", "applications"],
     description: "Designed beyond launch.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "palette",
     titleLines: ["Clean,", "intuitive", "interfaces"],
     description: "With clarity and structure.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "rocket",
     titleLines: ["Real-world", "systems"],
     description: "From idea to delivery.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
 ];
 
@@ -69,24 +69,24 @@ export const buildPrinciples = [
     icon: "sparkles",
     title: "Start simple.",
     description: "Then scale.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "window",
     title: "Focus on real problems.",
     description: "Not just features.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "rocket",
     title: "Ship fast.",
     description: "Iterate faster.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
   {
     icon: "tool",
     title: "Use AI as a tool.",
     description: "Not a shortcut.",
-    tone: "bg-[#f5f5f7]",
+    tone: "bg-[var(--surface)]",
   },
 ];
